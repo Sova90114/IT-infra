@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks: 
+    - name: Получение информации о CPU
+      command: iostat
+      register: CPU
+
+    - name: Вывод информации о процессоре
+      debug:
+        msg: "{{ CPU.stdout }}"
