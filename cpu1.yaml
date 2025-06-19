@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: информация о CPU
+      command: mpstat 1 1
+      register: CPU
+
+    - name: вывод информации
+      debug:
+        var: CPU.stdout_lines
+
